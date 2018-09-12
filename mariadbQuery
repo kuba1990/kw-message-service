@@ -1,0 +1,42 @@
+-- ----------------------------------------------------- 
+-- delete all tables` before start application
+-- -----------------------------------------------------
+/*
+DROP TABLE IF EXISTS `'bi_person`,`bi_gender`,`bi_country`,`bi_all`;
+*/
+-- ----------------------------------------------------- 
+-- Table 'bi`.`person` 
+-- ----------------------------------------------------- 
+CREATE TABLE IF NOT EXISTS `bi_person` (
+        `id_person` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `objectID` VARCHAR(50) NOT NULL,
+        `name` VARCHAR(50) NOT NULL,
+        `surname` VARCHAR(100) NOT NULL
+    ) COLLATE='utf8_bin';
+
+-- ----------------------------------------------------- 
+-- Table 'bi`.`gender` 
+-- ----------------------------------------------------- 
+CREATE TABLE IF NOT EXISTS `bi_gender` (
+        `id_gender` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `gender` VARCHAR(10) NOT NULL
+    ) COLLATE='utf8_bin';
+-- ----------------------------------------------------- 
+-- Table 'bi`.`country` 
+-- ----------------------------------------------------- 
+
+CREATE TABLE IF NOT EXISTS `bi_country` (
+        `id_country` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `country` VARCHAR(10) NOT NULL
+    ) COLLATE='utf8_bin';    
+    
+-- ----------------------------------------------------- 
+-- Table 'bi`.`PersonGenderPerson` 
+-- -----------------------------------------------------     
+CREATE TABLE IF NOT EXISTS `bi_personGenderPerson` (
+        `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        `id_person` VARCHAR(10) NOT NULL REFERENCES bi_person,
+        `id_country` VARCHAR(10) NOT NULL REFERENCES bi_country,
+        `id_gender` VARCHAR(10) NOT NULL REFERENCES bi_gender
+    ) COLLATE='utf8_bin';        
+
