@@ -1,0 +1,40 @@
+server:
+  context-path: /di-message-svc/v1
+  port: 8080
+  error.whitelabel.enabled: false
+
+application:
+  api:
+    id: di-message-svc
+    version: v1
+
+endpoints:
+  info:
+    enabled: true
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    nabled: false
+
+microservice:
+  oauth2:
+    enabled: false
+
+spring:
+  data:
+    mongodb:
+      uri: databaseURL
+      collection-name: CollectionName
+  datasource:
+    url: databaseURL
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: name
+    password: password
+    platform: mysql
+    separator: ;
+
+
